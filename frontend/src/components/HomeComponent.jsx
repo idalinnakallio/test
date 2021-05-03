@@ -54,6 +54,7 @@ function HomeComponent() {
             </div>
             <header className="App-header">
                 <img src="/hamncafet_logo.png" alt="Hamncafét logga" className="main_logo" />
+                <Button><AddToHomeScreen/></Button>
                 <Router>
                     
                     <Switch>
