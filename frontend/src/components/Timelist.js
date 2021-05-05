@@ -35,6 +35,8 @@ export default function Timelist(props) {
                     <Dropdown.Item key={n.toString()} eventKey={n}> {n} </Dropdown.Item>
                 ))}
             </DropdownButton>
+        <h5>Om ni saknar lediga tider för önskat datum och antal gäster - ring oss! Telefon: <a href="tel:0304-570-07">0304 570 07</a></h5>
+
         </div>
     )
 }

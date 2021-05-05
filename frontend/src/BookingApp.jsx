@@ -6,11 +6,14 @@ import './BookingApp.sass'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 
+
 function BookingApp() {
     return(
         <div className='BookingApp'>
+            <AddToHomeScreen/>
+            
             <Router>
-                <AddToHomeScreen/>
+          
             <>  
                 <Switch>
                         <Route path="/bookings" component={BookingListComponent}/>

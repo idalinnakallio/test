@@ -9,6 +9,7 @@ import AdditionalInfo from './AdditionalInfo';
 import Confirm from './Confirm';
 import AvailableTimeListComponent from './AvailableTimeListComponent';
 
+
 /**
  * Component for the Home page 
  */
@@ -27,6 +28,7 @@ function HomeComponent() {
     const pages = ['', '/guests', '/date', '/timelist', '/info', 'confirm']
     const [prevPage, setPrevPage] = useState('')
     const [nextPage, setNextPage] = useState('/guests')
+    const [show, setShow] = useState(false);
 
     function handlePages(action){
         if (page.current !== 0 && action === 'prev'){
@@ -53,10 +55,11 @@ function HomeComponent() {
                 <div class="blur"/>
             </div>
             <header className="App-header">
+                <AddToHomeScreen/>
                 <img src="/hamncafet_logo.png" alt="Hamncafét logga" className="main_logo" />
-                <Button><AddToHomeScreen/></Button>
+              
                 <Router>
-                    
+               
                     <Switch>
                         <Route path='/guests'>
                             <Guests booking={bookingJSON.current}/>
@@ -98,12 +101,25 @@ function HomeComponent() {
                                     Boka bord
                                 </Button>
                             </Link>
-                                <div>
-                                    <Button href="/bookings">Se bokningar</Button>
-                                </div>
-                                <div>
-                                    <Button className='contact-btn' href="/contact" >Kontakt</Button>
-                                </div>
+                            
+                            <div >
+                                    
+                                <Button className='contact-btn' onClick={()=> setShow(!show)}>Kontakt</Button>
+
+                                {
+                                show?<div class="card" className="contact-card">
+                                    <div class="card-body">
+                                        <div className="italictext">
+                                        <em>Har ni några frågor eller vill hellre boka via telefon eller mail? Tveka inte att kontakta oss!<br/>
+                                       </em></div>
+                                        <div>
+                                        Telefon: <a href="tel:0304-570-07">0304-570 07</a> <br/>
+                                        Email: <a href="mailto:info@gullholmenshamncafe.se">info@gullholmenshamncafe.se</a></div>
+                                    </div>
+                                    </div>: null
+                                }
+                            </div>
+                            
                             </nav>)                        
                         }
 
@@ -118,9 +134,9 @@ function HomeComponent() {
                     </div>
                 </Router>
 
-                <div className='add-btn'>
-                    <AddToHomeScreen/>
-                </div>
+                
+          
+                
 
             </header>
         </div>
